@@ -18,7 +18,7 @@ onMounted(async () => {
 
 <template>
   <div class="min-h-screen bg-gradient-to-b from-blue-100 to-blue-300 py-8 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+    <div class="max-w-7xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
       <!-- title -->
       <h1 class="text-3xl font-bold text-center text-blue-800 py-6 bg-blue-200">香港九天天氣預報</h1>
 
@@ -32,7 +32,7 @@ onMounted(async () => {
         <div
           v-for="day in weatherData?.weatherForecast"
           :key="day"
-          class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300"
+          class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 flex flex-col justify-around"
         >
           <!-- date and day -->
           <div class="flex justify-between items-center mb-2">
@@ -57,8 +57,13 @@ onMounted(async () => {
           </div>
 
           <!-- humidity -->
-          <div class="text-sm text-gray-600">
-            相對濕度: {{ day.forecastMinrh.value }}% - {{ day.forecastMaxrh.value }}%
+          <div class="flex flex-row justify-between items-center">
+            <div class="text-sm text-gray-600">
+              相對濕度: {{ day.forecastMinrh.value }}% - {{ day.forecastMaxrh.value }}%
+            </div>
+            <div>
+              降雨概率:<span class="font-extrabold">{{ day.PSR }}</span>
+            </div>
           </div>
         </div>
       </div>

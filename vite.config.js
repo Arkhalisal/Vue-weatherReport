@@ -8,6 +8,7 @@ import vueDevTools from "vite-plugin-vue-devtools";
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
   server: { port: 3000 },
+  base: "/Vue-weatherReport/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
