@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import moment from "moment";
+import WeatherImage from "./components/WeatherImage.vue";
 
 const weatherData = ref(null);
 
@@ -41,8 +42,13 @@ onMounted(async () => {
           </div>
 
           <!-- wind and weather -->
-          <div class="text-sm text-gray-600 mb-2">{{ day.forecastWind }}</div>
-          <div class="text-base font-medium text-gray-800 mb-2">天氣: {{ day.forecastWeather }}</div>
+          <div class="flex flex-row justify-between w-full">
+            <div class="flex flex-col w-5/6">
+              <div class="text-sm text-gray-600 mb-2">{{ day.forecastWind }}</div>
+              <div class="text-base font-medium text-gray-800 mb-2">天氣: {{ day.forecastWeather }}</div>
+            </div>
+            <WeatherImage :pic-id="day.ForecastIcon" class="w-[48px]" />
+          </div>
 
           <!-- temperature -->
           <div class="flex justify-between items-center mb-2">
